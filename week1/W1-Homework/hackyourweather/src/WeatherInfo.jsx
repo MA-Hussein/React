@@ -1,7 +1,6 @@
 import React from 'react';
 
-function Hackyourweather(props) {
-  const { cityName, countryName, main, description, temp_min, temp_max, lon, lat } = props;
+  const WeatherInfo = ({ cityName, countryName, main, description, temp_min, temp_max, lon, lat}) => {
   return (
     <div>
       <div className="box">
@@ -20,4 +19,4 @@ function Hackyourweather(props) {
   );
 }
 
-export default Hackyourweather;
+export default WeatherInfo;
