@@ -1,7 +1,6 @@
 import React from 'react';
 
-const Guarantee = ({ guaranteeItem }) => {
-  const { img, title, description } = guaranteeItem;
+const Guarantee = ({ guaranteeItem: { img, title, description }}) => {
   return (
     <div>
       <img src={img} alt='service-img' />
