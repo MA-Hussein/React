@@ -51,6 +51,7 @@ const Recharts = () => {
 					<Tooltip />
 					<Area type="monotone" dataKey="main.temp" name="temp" stroke="#96A8AC" fill="#82BFDB" />
 				</AreaChart>
+		
 			</ResponsiveContainer>
 			<button  className="backBtn" onClick={backBtn} style={{ fontSize: '16px', marginLeft: '40px' }}>
                 Back
