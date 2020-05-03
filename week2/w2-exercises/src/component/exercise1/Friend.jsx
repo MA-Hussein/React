@@ -2,26 +2,30 @@ import React, { useState } from 'react';
 import FriendProfile from './FriendProfile';
 import Button from './Button';
 
-const mainURL = 'https://www.randomuser.me/api?results=1';
-
 const Friend = () => {
-  const [friend, setFriend] = useState({});
-
-  // function to fetch the url & to set the friend data
-  const getFriend = async () => {
-    try {
-      const fetchedData = await fetch(mainURL);
-      const jsonData = await fetchedData.json();
-      await setFriend(jsonData.results[0]);
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
+	const [ friend, setFriend ] = useState();
+	const [ isLoadin, setLoading ] = useState(true);
+	const [ hasError, setError ] = useState(false);
+	const getFriend = () => {
+		fetch('https://www.randomuser.me/api?results=1')
+			.then((res) => res.json())
+			.then((data) => {
+				setFriend(data.results[0]);
+				setLoading(false);
+			})
+			.catch((err) => {
+				console.log('error', err);
+				setError(true);
+				setLoading(false);
+			});
+	};
   return (
     <div style={{ background: 'cornflowerblue' }}>
       <Button getFriend={getFriend} />
-      <FriendProfile friend={friend} />
+			{isLoadin && <p>New friend on demand by clicking the button!</p>}
+			{!hasError && friend && <FriendProfile friend={friend} />}
+			{hasError && <p>Somthing went wrong</p>}
+
     </div>
   );
 };
