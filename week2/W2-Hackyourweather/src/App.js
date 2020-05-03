@@ -46,7 +46,7 @@ const App = () => {
 			</div>
 			{state && (
 				<WeatherCard
-					name={state ? state.name : ''}
+					name={state.name}
 					country={state.sys ? state.sys.country : <h3> No cities searched for yet</h3>}
 					main={state.weather ? state.weather[0].main : ''}
 					description={state.weather ? state.weather[0].description : ''}
