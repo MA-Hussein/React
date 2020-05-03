@@ -10,7 +10,7 @@ const App = () => {
 	const [ city, setCity ] = useState('Amsterdam');
 	const [ isLoading, setLoading ] = useState(true);
 	const [ error, setError ] = useState(false);
-	const [ Value, setValue ] = useState('');
+	const [ value, setValue ] = useState('');
 
 	useEffect(
 		() => {
@@ -32,7 +32,7 @@ const App = () => {
 		setValue(e.target.value);
 	};
 	const handleButton = () => {
-		setCity(Value);
+		setCity(value);
 	};
 
 	return (
