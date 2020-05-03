@@ -3,21 +3,20 @@ import axios from 'axios';
 import Joke from './Joke';
 
 const RandomJoke = () => {
-  const [joke, setJoke] = useState({});
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const result = await axios('https://official-joke-api.appspot.com/random_joke');
-        setJoke(result);
-      } catch (error) {
-        console.log(error);
-      }
-    };
-    fetchData();
-  }, []);
-
-  return <Joke key={joke} joke={joke} />;
+	const [ joke, setJoke ] = useState({});
+	useEffect(() => {
+		axios
+			.get('https://official-joke-api.appspot.com/random_joke')
+			.then((res) => {
+				setJoke(res.data);
+			})
+			.catch((err) => console.log('Error', err));
+	}, []);
+	return (
+		<div className="Joke">
+			<Joke setup={joke.setup} punchline={joke.punchline} />
+		</div>
+	);
 };
 
 export default RandomJoke;
