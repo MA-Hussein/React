@@ -11,7 +11,7 @@ const App = () => {
 	const [ message, setMessage ] = useState(' No cities searched for yet... ');
 	const [ isLoading, setLoading ] = useState(true);
 	const [ error, setError ] = useState(false);
-	const [ Value, setValue ] = useState('');
+	const [ value, setValue ] = useState('');
 
 	const getCity = async (city) => {
 		setLoading(true);
